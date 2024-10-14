@@ -2,6 +2,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from config.config import MAIL_USERNAME, APP_PASSWORD
+import markdown2  # Import markdown2 library to convert markdown to HTML
 
 def generate_email(to_email, subject, body, query):
     # Create the email
@@ -11,10 +12,13 @@ def generate_email(to_email, subject, body, query):
     msg['Subject'] = subject
     
     # Combine body and query into a single message
-    full_body = f"<h3>Your search: {query}</h3><br>{body}"  # Concatenate body and query in HTML format
+    full_body = f"## Your search: {query}\n\n{body}"  # Concatenate body and query in Markdown format
     
-    # Attach the combined body to the email
-    msg.attach(MIMEText(full_body, 'html'))  # 'html' for HTML format
+    # Convert Markdown to HTML
+    html_body = markdown2.markdown(full_body)
+    
+    # Attach the combined body to the email in HTML format
+    msg.attach(MIMEText(html_body, 'html'))
 
     # Send the email
     try:
@@ -35,4 +39,3 @@ def generate_email(to_email, subject, body, query):
         print(f"SMTP error occurred: {e}")
     except Exception as e:
         print(f"An error occurred: {e}")
-
