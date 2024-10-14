@@ -1,14 +1,14 @@
-from dotenv import load_dotenv
-import os
-
-# Load environment variables from .env file
-load_dotenv()
+import streamlit as st
 
 # Set the configuration variables from the .env file
-GEMINI_API_KEY= os.getenv('GEMINI_API_KEY')
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 
 # Mail configuration
-MAIL_USERNAME = os.getenv('MAIL_USERNAME')
-MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
-MAIL_DEFAULT_SENDER = os.getenv('MAIL_DEFAULT_SENDER')
-APP_PASSWORD = os.getenv('APP_PASSWORD')
+MAIL_USERNAME = st.secrets["MAIL_USERNAME"]
+MAIL_PASSWORD = st.secrets["MAIL_PASSWORD"]
+MAIL_DEFAULT_SENDER = st.secrets["MAIL_DEFAULT_SENDER"]
+APP_PASSWORD = st.secrets["APP_PASSWORD"]
+
+# Print the GEMINI_API_KEY for debugging purposes (optional)
+print(GEMINI_API_KEY)
+

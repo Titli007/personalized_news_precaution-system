@@ -1,56 +1,50 @@
 # Python cache files
 __pycache__/
 *.py[cod]
-*$py.class
 
 # Virtual environment
 venv/
 env/
+ENV/
+env.bak/
+venv.bak/
+
+# Flask instance folder
+instance/
+*.pyc
+
+# dotenv
 .env
 
-# IDE specific files
-.vscode/
-.idea/
+# MyPy
+.mypy_cache/
 
-# OS generated files
-.DS_Store
-Thumbs.db
+# IDE configuration files
+.idea/
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Python egg files
+*.egg-info/
+*.egg
+
+# Build directories
+build/
+dist/
+*.egg-info/
+
+# Streamlit secrets
+.streamlit/secrets.toml
 
 # Logs
 *.log
 
-# Temporary files
-*.tmp
+# Coverage reports
+.coverage
+htmlcov/
+*.cover
 
-# Configuration files that might contain sensitive information
-config/*.ini
-config/*.json
-
-# Compiled Python files
-*.pyc
-
-# Database files
-*.db
-*.sqlite3
-
-# Output directories
-output/
-dist/
-build/
-
-# Dependency directories
-lib/
-libs/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Flask session files
-flask_session/
-
-# Streamlit specific
-.streamlit/
-
-# Any local settings or secrets
-*.local
-*_local.*
+# Other files
+*.DS_Store

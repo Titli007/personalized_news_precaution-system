@@ -4,7 +4,7 @@ from email_sender.send_email import generate_email
 
 async def execute_workflow(query, user_email=None):
     try:
-        # Fetch news
+        # Fetch news asynchronously
         fetched_news = await fetch_news(query)
         
         if not fetched_news:
